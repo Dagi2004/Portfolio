@@ -1,7 +1,7 @@
 import React from "react";
 import frontdev from "../assets/frontdev.avif";
 import webdesgin from "../assets/webdesgin.avif";
-import LandingPage from "../assets/landingpage.jpg";
+import LandingPage from "../assets/landinPage.jpg";
 import { motion } from "framer-motion";
 const Expertise = () => {
   return (
