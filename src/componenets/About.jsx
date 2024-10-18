@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Responsivemobile from "../assets/Responsivemobile.png";
 import responsive from "../assets/responsive.png";
+import Resume from "../assets/Resumee.pdf";
 const About = ({ isDarkMode }) => {
   return (
     <div className="mx-auto max-w-4xl py-6" id="aboutme">
@@ -9,7 +10,7 @@ const About = ({ isDarkMode }) => {
         <div className=" mr-16 md:w-1/2 text-center relative">
           <motion.img
             initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -23,7 +24,7 @@ const About = ({ isDarkMode }) => {
           />
           <motion.img
             initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -38,7 +39,7 @@ const About = ({ isDarkMode }) => {
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
             <motion.p
               initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              animate={{ x: 0, opacity: 1 }}
               transition={{
                 delay: 0.5,
                 x: { type: "spring", stiffness: 60 },
@@ -67,7 +68,7 @@ const About = ({ isDarkMode }) => {
         >
           <motion.h1
             initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -81,7 +82,7 @@ const About = ({ isDarkMode }) => {
           </motion.h1>
           <motion.p
             initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -96,25 +97,28 @@ const About = ({ isDarkMode }) => {
             I’m Dagmawi Milkias, Dynamic Front-End Developer and Web Designer
             with a strong commitment to crafting responsive and visually
             engaging websites. Proficient in{" "}
-            <span className="text-blue">HTML, CSS, and JavaScript</span>, with a
-            solid foundation in web development principles.
+            <span className="text-blue">HTML, CSS, and JavaScript</span> with a
+            solid foundation in web development principles and frameworks such
+            as <span className="text-blue">React JS and Tailwind CSS</span>
           </motion.p>
-          <div className="flex items-center justify-center">
-            <motion.button
-              initial={{ x: 100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{
-                delay: 0.5,
-                x: { type: "spring", stiffness: 60 },
-                opacity: { duration: 1 },
-                ease: "easeIn",
-                duration: 1,
-              }}
-              className="bg-blue text-white md:py-2 md:px-4 py-1 px-3 rounded-md hover:bg-lightBlueHover"
-            >
-              Download Resume
-            </motion.button>
-          </div>
+          <a href={Resume} download="resume" target="blank">
+            <div className="flex items-center justify-center">
+              <motion.button
+                initial={{ x: 100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  delay: 0.5,
+                  x: { type: "spring", stiffness: 60 },
+                  opacity: { duration: 1 },
+                  ease: "easeIn",
+                  duration: 1,
+                }}
+                className="bg-blue text-white md:py-2 md:px-4 py-1 px-3 rounded-md hover:bg-lightBlueHover"
+              >
+                Download Resume
+              </motion.button>
+            </div>
+          </a>
         </motion.div>
       </div>
     </div>

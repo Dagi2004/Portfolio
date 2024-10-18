@@ -3,8 +3,12 @@ import { Link } from "react-scroll";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { BsToggle2Off } from "react-icons/bs";
 import { BiMenu, BiX } from "react-icons/bi";
+import Resume from "../assets/Resumee.pdf";
+import { IoMoonOutline } from "react-icons/io5";
+import { CiLight } from "react-icons/ci";
 
-const Navbar = ({ className, toggleColor }) => {
+import { div } from "framer-motion/client";
+const Navbar = ({ toggleColor, isDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,7 +16,13 @@ const Navbar = ({ className, toggleColor }) => {
   };
 
   return (
-    <nav className="fixed top-0 z-10 w-full flex items-center justify-between  bg-black px-16 py-6 text-white backdrop-blur-md md:justify-evenly">
+    <nav
+      className={`fixed top-0 z-10 w-full flex items-center justify-between  ${
+        isDarkMode
+          ? "bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] text-white"
+          : "bg-white text-black"
+      }  px-16 py-6  backdrop-blur-md md:justify-evenly`}
+    >
       <Link
         to="home"
         spy={true}
@@ -32,7 +42,7 @@ const Navbar = ({ className, toggleColor }) => {
               smooth={true}
               offset={-50}
               duration={500}
-              className="cursor-pointer opacity-70 transition-all duration-300 hover:opacity-100"
+              className="cursor-pointer 0 transition-all duration-300 hover"
             >
               {item.charAt(0).toLowerCase() + item.slice(1)}
             </Link>
@@ -46,7 +56,7 @@ const Navbar = ({ className, toggleColor }) => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <FaLinkedinIn className="text-xl cursor-pointer opacity-70 transition-all duration-300 hover:text-red-500 hover:opacity-100" />
+            <FaLinkedinIn className="text-xl cursor-pointer  transition-all duration-300 hover:text-red-500 hover:opacity-100" />
           </a>
         </li>
         <li>
@@ -59,16 +69,26 @@ const Navbar = ({ className, toggleColor }) => {
           </a>
         </li>
       </ul>
-      <div className="hidden md:flex gap-5">
-        <button className="text-white px-5 bg-blue rounded-md hover:bg-lightBlueHover">
-          Download Resume
-        </button>
-      </div>
+      <a href={Resume} download="resume" target="blank">
+        <div className="hidden md:flex gap-5">
+          <button className="text-white px-5 bg-blue rounded-md hover:bg-lightBlueHover">
+            Download Resume
+          </button>
+        </div>
+      </a>
+
       <div className="hidden md:flex">
-        <BsToggle2Off
-          onClick={toggleColor}
-          className="text-xl cursor-pointer opacity-90 transition-all duration-300 hover:text-red-500 hover:opacity-100"
-        />
+        {isDarkMode ? (
+          <CiLight
+            onClick={toggleColor}
+            className=" text-xl cursor-pointer opacity-90 transition-all duration-300 hover:text-red-500 hover:opacity-100"
+          />
+        ) : (
+          <IoMoonOutline
+            onClick={toggleColor}
+            className="text-xl cursor-pointer opacity-90 transition-all duration-300 hover:text-red-500 hover:opacity-100"
+          />
+        )}
       </div>
       {isOpen ? (
         <BiX className="block md:hidden text-4xl" onClick={toggleMenu} />
@@ -76,8 +96,18 @@ const Navbar = ({ className, toggleColor }) => {
         <BiMenu className="block md:hidden text-4xl" onClick={toggleMenu} />
       )}
       {isOpen && (
-        <div className="fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 bg-black/90 p-12 md:hidden">
+        <div
+          className={`fixed right-0 top-[84px] flex h-screen w-1/2 flex-col items-start justify-start gap-10 ${
+            isDarkMode
+              ? "bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] text-white"
+              : "bg-black text-white"
+          } p-12 md:hidden`}
+        >
           <ul className="flex flex-col gap-8 mx-auto">
+            <BsToggle2Off
+              onClick={toggleColor}
+              className="text-xl mx-auto cursor-pointer opacity-90 transition-all duration-300 hover:text-red-500 hover:opacity-100"
+            />
             {["Home", "Projects", "About Me", "Expertise", "Contact"].map(
               (item) => (
                 <li key={item}>
@@ -115,9 +145,11 @@ const Navbar = ({ className, toggleColor }) => {
               </a>
             </li>
           </ul>
-          <button className="text-white px-2 bg-blue rounded-md hover:bg-lightBlueHover">
-            Download Resume
-          </button>
+          <a href={Resume} download="resume" target="blank">
+            <button className="text-white px-2 bg-blue rounded-md hover:bg-lightBlueHover">
+              Download Resume
+            </button>
+          </a>
         </div>
       )}
     </nav>

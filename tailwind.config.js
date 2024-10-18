@@ -5,6 +5,7 @@ export default {
     extend: {},
     colors: {
       blue: "#0159FD",
+      darkblue: "rgb(13, 36, 56)",
       black: "#000",
       white: "#fff",
       red: "rgb(198, 46, 46)",

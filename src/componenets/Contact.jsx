@@ -16,7 +16,7 @@ const validationSchema = Yup.object({
   Message: Yup.string().required("This field is required"),
 });
 
-const Contact = () => {
+const Contact = ({ isDarkMode }) => {
   const form = useRef();
   const [copyStatus, setCopyStatus] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
@@ -52,7 +52,7 @@ const Contact = () => {
   return (
     <motion.div
       initial={{ x: -100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
+      animate={{ x: 0, opacity: 1 }}
       transition={{
         delay: 0.5,
         x: { type: "spring", stiffness: 60 },
@@ -60,22 +60,30 @@ const Contact = () => {
         ease: "easeIn",
         duration: 1,
       }}
-      className="mx-auto py-4"
+      className=" py-4"
       id="contact"
     >
-      <h3 className="text-blue text-3xl mb-6 mt-2">Get In Touch</h3>
+      <h3 className="text-blue font-bold text-3xl mb-6 mt-2">Get In Touch</h3>
       <div className="flex flex-col md:flex-row items-center justify-center md:gap-12 gap-4 mb-8 rounded-lg">
-        <div className="bg-black px-6 py-4 text-white flex items-center  rounded-md">
+        <div
+          className={`${
+            isDarkMode ? "bg-darkblue text-white" : "bg-black text-white"
+          } px-6 py-4 text-white flex items-center  rounded-md`}
+        >
           <FaPhoneAlt />
           <h4>+251935671646</h4>
         </div>
 
-        <div className="bg-black px-6 py-4 text-white flex items-center gap-2 rounded-lg ">
+        <div
+          className={`${
+            isDarkMode ? "bg-darkblue text-white" : "bg-black text-white"
+          } px-6 py-4 text-white flex items-center gap-2 rounded-lg`}
+        >
           <CgMail />
           <div>
-            <CopyToClipboard text="dagmawimilias@gmail.com" onCopy={onCopy}>
+            <CopyToClipboard text="dagmawimilkias@gmail.com" onCopy={onCopy}>
               <button className="flex items-center gap-2">
-                <h4>dagmawimilias@gmail.com</h4>
+                <h4>dagmawimilkias@gmail.com</h4>
               </button>
             </CopyToClipboard>
           </div>
@@ -99,15 +107,19 @@ const Contact = () => {
           {() => (
             <Form
               ref={form}
-              className="bg-black text-white rounded-md p-9  max-w-lg"
+              className={`${
+                isDarkMode ? "bg-darkblue text-white" : "bg-black text-white"
+              } max-w-lg mx-auto rounded-md p-9 space-y-6`}
             >
-              <div className="mb-4">
-                <label>Full Name *</label>
+              <div className="mb-4 pt-2">
+                <label className="block text-left mt-2">Full Name *</label>
                 <Field
                   type="text"
                   name="FullName"
                   placeholder="Abebe Lemma.."
-                  className="w-full border p-2 rounded-md text-black "
+                  className={`${
+                    isDarkMode ? "bg-darkblue/80 text-white" : "bg-gray"
+                  } w-full border p-2 rounded-md`}
                 />
                 <ErrorMessage
                   name="FullName"
@@ -115,13 +127,16 @@ const Contact = () => {
                   className="text-red"
                 />
               </div>
+
               <div className="mb-4">
-                <label>Email Address *</label>
+                <label className="block text-left">Email Address *</label>
                 <Field
                   type="email"
                   name="EmailAddress"
                   placeholder="Email Address.."
-                  className="w-full border p-2 rounded-md text-black"
+                  className={`${
+                    isDarkMode ? "bg-darkblue/80 text-white" : "bg-gray"
+                  } w-full border p-2 rounded-md`}
                 />
                 <ErrorMessage
                   name="EmailAddress"
@@ -129,13 +144,16 @@ const Contact = () => {
                   className="text-red"
                 />
               </div>
+
               <div className="mb-4">
-                <label>Subject *</label>
+                <label className="block text-left">Subject *</label>
                 <Field
                   type="text"
                   name="Subject"
                   placeholder="Title.."
-                  className="w-full border p-2 rounded-md text-black"
+                  className={`${
+                    isDarkMode ? "bg-darkblue/80 text-white" : "bg-gray"
+                  } w-full border p-2 rounded-md`}
                 />
                 <ErrorMessage
                   name="Subject"
@@ -143,13 +161,16 @@ const Contact = () => {
                   className="text-red"
                 />
               </div>
+
               <div className="mb-4">
-                <label>Message *</label>
+                <label className="block text-left">Message *</label>
                 <Field
                   as="textarea"
                   name="Message"
                   placeholder="Type Message.."
-                  className="w-full border p-2 rounded-md text-black"
+                  className={`${
+                    isDarkMode ? "bg-darkblue/80 text-white" : "bg-gray"
+                  } w-full border p-2 rounded-md`}
                 />
                 <ErrorMessage
                   name="Message"
@@ -160,18 +181,20 @@ const Contact = () => {
 
               <div className="flex flex-col items-center">
                 <button
-                  className="bg-blue text-white px-10 py-2 rounded w-full"
+                  className="bg-blue hover:bg-blue text-white px-10 py-2 rounded w-full" // Adjusted button colors
                   type="submit"
                 >
                   Send Now
                 </button>
+
                 {successMessage && (
-                  <div className="px-10 mb-4 mx-auto max-w-md mt-4 py-3">
-                    <h4 className="text-blue">✅ {successMessage}</h4>
+                  <div className="mt-4 max-w-md w-full py-3 text-center">
+                    <h4 className="text-green">✅ {successMessage}</h4>
                   </div>
                 )}
+
                 {errorMessage && (
-                  <div className="px-10 mb-4 mx-auto max-w-md mt-4 py-3">
+                  <div className="mt-4 max-w-md w-full py-3 text-center">
                     <h4 className="text-red">❌ {errorMessage}</h4>
                   </div>
                 )}

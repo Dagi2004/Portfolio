@@ -26,12 +26,12 @@ function App() {
           isDarkMode ? "dark-mode" : "light-mode"
         }`}
       >
-        <Navbar toggleColor={toggleColor} />
+        <Navbar toggleColor={toggleColor} isDarkMode={isDarkMode} />
         <Home isDarkMode={isDarkMode} />
-        <Projects />
+        <Projects isDarkMode={isDarkMode} />
         <About isDarkMode={isDarkMode} />
-        <Expertise />
-        <Contact />
+        <Expertise isDarkMode={isDarkMode} />
+        <Contact isDarkMode={isDarkMode} />
       </main>
     </>
   );

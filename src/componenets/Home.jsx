@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import ProfileDesc from "../assets/ProfileDesc.png";
 import profileimagePhone from "../assets/profileimagePhone.png";
 import { Link } from "react-scroll";
+
 const Home = ({ isDarkMode }) => {
   return (
     <div className="mx-auto max-w-4xl py-6" id="home">
@@ -10,7 +11,7 @@ const Home = ({ isDarkMode }) => {
         <div className="md:w-1/2 text-center mt-10">
           <motion.h1
             initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -26,7 +27,7 @@ const Home = ({ isDarkMode }) => {
           </motion.h1>
           <motion.p
             initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -52,7 +53,7 @@ const Home = ({ isDarkMode }) => {
             <div className="flex items-center mx-auto justify-center">
               <motion.button
                 initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
+                animate={{ x: 0, opacity: 1 }}
                 transition={{
                   delay: 0.5,
                   x: { type: "spring", stiffness: 60 },
@@ -71,7 +72,7 @@ const Home = ({ isDarkMode }) => {
         <div className="md:w-1/2 ml-10 mt-5 md:mt-10 flex justify-center">
           <motion.img
             initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
@@ -85,7 +86,7 @@ const Home = ({ isDarkMode }) => {
           />
           <motion.img
             initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               delay: 0.5,
               x: { type: "spring", stiffness: 60 },
