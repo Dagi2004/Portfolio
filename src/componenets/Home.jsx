@@ -15,7 +15,7 @@ const Home = ({ isDarkMode }) => {
             : ""
         }`}
       >
-        <div className=" mx-auto px-10 flex flex-col-reverse md:flex-row items-center justify-center">
+        <div className="mt-3 mx-auto px-10 flex flex-col-reverse md:flex-row items-center justify-center">
           <div className="md:w-1/2 md:text-left text-center ">
             <motion.h1
               initial={{ x: -100, opacity: 0 }}

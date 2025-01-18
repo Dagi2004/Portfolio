@@ -2,13 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import github from "../assets/github.jpg";
 import easybank from "../assets/landingpage.webp";
-
 import { FaGithub } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import kefita from "../assets/kefita.png";
 import Digital from "../assets/digitalmark.png";
 import KefitaVid from "../assets/kefita.mp4";
 import lula from "../assets/HeroImageD.png";
+
 const WorkExperiece = [
   {
     Title: "UI/UX designer",
@@ -19,7 +19,6 @@ const WorkExperiece = [
       "Developed high-fidelity wireframes to enhance user experience and functionality",
     ],
   },
-
   {
     Title: "FrontEnd Developer ",
     Company: "Indolike Company | 2025 - Present | ",
@@ -31,7 +30,7 @@ const WorkExperiece = [
     ],
   },
   {
-    Title: "Frontend  Developer Internship",
+    Title: "Frontend Developer Internship",
     Company: "Coderscave Company | July 10/2024-August 12/2024 ",
     Achivements: [
       "Created user-friendly designs for web applications, enhancing the overall user experience.",
@@ -61,7 +60,7 @@ const Projects = ({ isDarkMode }) => {
           ease: "easeIn",
           duration: 1,
         }}
-        className="md:text-3xl mt-2 text-2xl font-bold text-blue mb-6 text-center"
+        className="md:text-3xl text-2xl font-bold text-blue mb-6 text-center mt-6"
       >
         Latest Works
       </motion.h1>
@@ -95,23 +94,19 @@ const Projects = ({ isDarkMode }) => {
             details: [
               "This project emphasizes a vibrant and user-friendly layout, integrating advanced features to facilitate easy browsing and purchasing, ultimately boosting customer engagement and satisfaction",
             ],
-            // demoLink: KefitaVid,
             sourceCode: "https://github.com/Dagi2004/DigitalMarketingReDesign",
             isImageOnRight: false,
           },
-
           {
             image: lula,
             title: "Lula Bakery Center Website",
             details: [
               "The site features an appealing design that showcases their delicious offerings, along with easy navigation for customers to explore menus, place orders, and learn about the bakery's story and values",
             ],
-            // demoLink: KefitaVid,
             sourceCode: "https://github.com/Dagi2004/BakeryLandingPage",
             demoLink: "https://lulabakerylandingpage.netlify.app/",
             isImageOnRight: true,
           },
-          // Add other projects here
         ].map((project, index) => (
           <motion.div
             key={index}
@@ -131,16 +126,16 @@ const Projects = ({ isDarkMode }) => {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full lg:w-[480px] max-w-md md:max-w-[460px] h-[337px] rounded-[32px] object-cover"
+              className="w-full lg:w-1/2 max-w-[340px] md:max-w-[460px]  rounded-[32px] object-cover"
             />
-            <div className="flex flex-col items-center  space-y-4 lg:max-w-md">
+            <div className="flex flex-col items-center space-y-4 lg:max-w-md">
               <h3 className="text-blue text-2xl font-bold text-center">
                 {project.title}
               </h3>
               <p
                 className={`${
                   isDarkMode ? "text-white" : "text-black"
-                } leading-[24px] text-center font-light text-[18px] max-w-lg space-y-2`}
+                } leading-[24px] text-center font-normal text-[16px] md:text-[18px] max-w-md md:max-w-lg space-y-2`}
               >
                 {project.details.map((detail, i) => (
                   <p key={i}>{detail}</p>
@@ -150,7 +145,7 @@ const Projects = ({ isDarkMode }) => {
                 {project.sourceCode && (
                   <a
                     href={project.sourceCode}
-                    target="blank"
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     <button className="bg-darkerBlue text-white shadow-md px-5 py-1 rounded-md font-bold">
@@ -161,7 +156,7 @@ const Projects = ({ isDarkMode }) => {
                 {project.demoLink && (
                   <a
                     href={project.demoLink}
-                    target="blank"
+                    target="_blank"
                     rel="noopener noreferrer"
                   >
                     <button className="bg-darkerBlue text-white shadow-md px-5 py-1 rounded-md font-bold">
@@ -193,10 +188,10 @@ const Projects = ({ isDarkMode }) => {
             key={index}
             className={`${
               isDarkMode ? "bg-darkblue text-white" : "bg-whiteen text-black"
-            } rounded-xl text-blackhite shadow-lg overflow-hidden max-w-4xl mx-auto transform transition-all hover:scale-105`}
+            } rounded-xl shadow-lg overflow-hidden max-w-4xl mx-auto transform transition-all hover:scale-105`}
           >
             <div className="flex flex-col text-left">
-              <div className="bg-blue-600  p-4">
+              <div className="bg-blue-600 p-4">
                 <h2 className="text-xl font-semibold">{experience.Title}</h2>
                 <p className="text-sm">{experience.Company}</p>
               </div>
