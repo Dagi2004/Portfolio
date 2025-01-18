@@ -29,6 +29,7 @@ const services = [
 ];
 
 import { motion } from "framer-motion";
+
 const Expertise = ({ isDarkMode }) => {
   return (
     <div id="service" className="mx-auto md:p-4 p-6">
@@ -62,10 +63,10 @@ const Expertise = ({ isDarkMode }) => {
         {services.map((service, index) => (
           <motion.div
             key={index}
-            className={`${
-              index === 1 && !isDarkMode ? "bg-lightBlueHover text-white" : "" // Apply 'bg-blue' for the second item
-            } overflow-hidden rounded-lg ${
-              isDarkMode
+            className={`overflow-hidden rounded-lg ${
+              index === 1 && !isDarkMode
+                ? "bg-lightBlueHover text-white"
+                : isDarkMode
                 ? "bg-darkblue text-white"
                 : "bg-white text-black border border-lightBlueHover"
             } max-w-[350px] h-full max-h-[220px] w-full text-center`}
@@ -79,7 +80,7 @@ const Expertise = ({ isDarkMode }) => {
               <h3
                 className={`${
                   index === 1 ? "text-white" : "text-blue"
-                }  text-md font-bold  mb-2`}
+                } text-md font-bold mb-2`}
               >
                 {service.title}
               </h3>
